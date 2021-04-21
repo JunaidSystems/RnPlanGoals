@@ -14,15 +14,14 @@ export default function App() {
           title="ADD"
         />
       </View>
-      <View style={{ padding: 20, flexDirection:'row',justifyContent:'space-between' }}>
+      <View style={{ padding: 20,height:300, flexDirection:'row-reverse',justifyContent:'center' }}>
         <View
           style={{
             backgroundColor: 'orange',
-            width: 100,
-            height: 100,
+            flex:1,
             justifyContent: 'center',
-            alignItems: 'center',
-            alignSelf:'flex-start'
+            alignItems: 'center'
+          
           }}
         >
           <Text>1</Text>
@@ -30,11 +29,9 @@ export default function App() {
         <View
           style={{
             backgroundColor: 'yellow',
-            width: 100,
-            height: 100,
+            flex:2,
             justifyContent: 'center',
-            alignItems: "center",
-            alignSelf:'center'
+            alignItems: "center"
           }}
         >
           <Text>2</Text>
@@ -42,11 +39,10 @@ export default function App() {
         <View
           style={{
             backgroundColor: 'blue',
-            width: 100,
-            height: 100,
+            flex:1,
             justifyContent: 'center',
-            alignItems: "center",
-            alignSelf:'flex-end'
+            alignItems: "center"
+            
           }}
         >
           <Text>3</Text>

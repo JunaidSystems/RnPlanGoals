@@ -1,11 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   return (
-    <View>
-     
+    <View style={{ padding: 50 }}>
+      <View>
+        <View>
+          <TextInput
+            placeholder=" JT Goals "
+            style={{ borderColor: 'black', borderWidth: 1, padding: 10, marginBottom: 5 }}
+          />
+          <Button
+            title="click me"
+          />
+        </View>
+      </View>
     </View>
   );
 }

@@ -4,46 +4,29 @@ import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   return (
-    <View style={{ padding: 50 }}>
-      <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: 'center' }}>
+    <View style={styles.root}>
+      <View style={styles.upperContainer}>
         <TextInput
           placeholder=" JT Goals "
-          style={{ width: '80%', borderColor: 'black', borderWidth: 1, padding: 10, marginBottom: 5 }}
+          style={styles.txtInput1}
         />
         <Button
           title="ADD"
         />
       </View>
-      <View style={{ padding: 20,height:300, flexDirection:'row-reverse',justifyContent:'center' }}>
+      <View style={styles.lowerContainer}>
         <View
-          style={{
-            backgroundColor: 'orange',
-            flex:1,
-            justifyContent: 'center',
-            alignItems: 'center'
-          
-          }}
+          style={[styles.box1Style,styles.boxStyle]}
         >
           <Text>1</Text>
         </View>
         <View
-          style={{
-            backgroundColor: 'yellow',
-            flex:2,
-            justifyContent: 'center',
-            alignItems: "center"
-          }}
+          style={[styles.box2Style,styles.boxStyle]}
         >
           <Text>2</Text>
         </View>
         <View
-          style={{
-            backgroundColor: 'blue',
-            flex:1,
-            justifyContent: 'center',
-            alignItems: "center"
-            
-          }}
+          style={[styles.box3Style,styles.boxStyle]}
         >
           <Text>3</Text>
         </View>
@@ -52,3 +35,41 @@ export default function App() {
   );
 }
 
+const styles = StyleSheet.create({
+  root: {
+    padding: 50
+  },
+  upperContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: 'center'
+  },
+  txtInput1: {
+    width: '80%',
+    borderColor: 'black',
+    borderWidth: 1,
+    padding: 10,
+    marginBottom: 5
+  },
+  lowerContainer: {
+    padding: 20,
+    height: 300,
+    flexDirection: 'row-reverse',
+    justifyContent: 'center'
+  },
+  boxStyle:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  box1Style:{
+    backgroundColor: 'orange'
+  },
+  box2Style:{
+    backgroundColor: 'yellow'
+  },
+  box3Style:{
+    backgroundColor: 'green'
+  }
+  
+});

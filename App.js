@@ -1,9 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import React, { useState } from "react";
+import {
+  Button,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  ScrollView,
+  FlatList,
+} from "react-native";
 
 export default function App() {
-  const [enteredGoal, setEnteredGoal] = useState('');
+  const [enteredGoal, setEnteredGoal] = useState("");
   const [ourGoals, setOurGoals] = useState([]);
 
   const goalInputHandler = (enteredTxt) => {
@@ -11,7 +19,10 @@ export default function App() {
   };
 
   const addGoalHandler = () => {
-    setOurGoals(currentGoalList => [...currentGoalList, enteredGoal]);   //these dots are used to contain all previous values in the array  
+    setOurGoals((currentGoalList) => [
+      ...currentGoalList,
+      { key: Math.random().toString(), value: enteredGoal }
+    ]); //these dots are used to contain all previous values in the array
   };
 
   return (
@@ -23,18 +34,18 @@ export default function App() {
           onChangeText={goalInputHandler}
           value={enteredGoal}
         />
-        <Button
-          title="ADD"
-          onPress={addGoalHandler}
-        />
+        <Button title="ADD" onPress={addGoalHandler} />
       </View>
       <View>
         {/* mapping this array in array of components */}
-        {ourGoals.map((goal) => <View key={goal} style={styles.listStyle}> 
-          <Text >{goal}</Text>
-        </View>
-        )}
-
+        <FlatList
+          data={ourGoals}
+          renderItem={(itemData) => (
+            <View style={styles.listStyle}>
+              <Text>{itemData.item.value}</Text>
+            </View>
+          )}
+        />
       </View>
     </View>
   );
@@ -42,25 +53,25 @@ export default function App() {
 
 const styles = StyleSheet.create({
   root: {
-    padding: 50
+    padding: 50,
   },
   upperContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: 'center'
+    alignItems: "center",
   },
   txtInput1: {
-    width: '80%',
-    borderColor: 'black',
+    width: "80%",
+    borderColor: "black",
     borderWidth: 1,
     padding: 10,
-    marginBottom: 5
+    marginBottom: 5,
   },
-  listStyle:{
-    padding:10,
-    marginVertical:10,
-    borderColor:'black',
+  listStyle: {
+    padding: 10,
+    marginVertical: 10,
+    borderColor: "black",
     borderWidth: 1,
-    backgroundColor: '#33FFAC'
-  }
+    backgroundColor: "#33FFAC",
+  },
 });
